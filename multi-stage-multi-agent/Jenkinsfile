@@ -4,9 +4,11 @@ pipeline {
     stage('Back-end') {
       agent {
         docker { image 'maven:3.8.1-adoptopenjdk-11' }
+        docker { image 'openjdk:17-jdk-slim' }
       }
       steps {
         sh 'mvn --version'
+        sh 'java Helloworld'
       }
     }
     stage('Front-end') {
@@ -27,6 +29,15 @@ pipeline {
       }
     }
 
+
+     stage('Database') {
+      agent {
+        docker { image 'mysql:8.0' }
+      }
+      steps {
+        sh 'mysql --version'
+      }
+    }
 
     
   }
