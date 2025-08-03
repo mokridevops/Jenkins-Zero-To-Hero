@@ -20,7 +20,7 @@ pipeline {
 
  stage('Database') {
       agent {
-        docker { image 'oracle/database:12.2.0.1-ee' }
+        docker { image 'openjdk:17-jdk-slim' }
       }
       steps {
         sh 'node --version'
