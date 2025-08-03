@@ -23,7 +23,7 @@ pipeline {
         docker { image 'openjdk:17-jdk-slim' }
       }
       steps {
-            sh 'java Helloworld'
+            sh 'java --version'
       }
     }
 
